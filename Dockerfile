@@ -1,19 +1,15 @@
-# Stage 1: Build Process
-FROM node:lts-slim as build
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-
-# install node_modules
-ADD package.json /usr/src/app/package.json
-RUN npm install
-ADD . /usr/src/app
+# build environment
+FROM node:13.12.0-alpine as build
+WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json ./
+RUN npm install --silent
+RUN npm install react-scripts@3.4.1 -g --silent
+COPY . ./
 RUN npm run build
-RUN echo $(ls .)
 
-# Stage 2: Production environment with nginx
-FROM nginx:1.16.0-alpine
-COPY --from=build /usr/src/app/build /usr/share/nginx/html
-RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx/nginx.conf /etc/nginx/conf.d
+# production environment
+FROM nginx:stable-alpine
+COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
