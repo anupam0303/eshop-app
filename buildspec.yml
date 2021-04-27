@@ -10,8 +10,8 @@ phases:
       - apt-get update
       - apt-get -y install jq
       - apt-get -y install python3-pip
-      #- apt-get -y install python3-dev
-      - pip uninstall awscli
+      - apt-get -y install python3-dev
+      #- pip uninstall awscli
       - pip3 install --upgrade awscli
   pre_build:
       commands:
