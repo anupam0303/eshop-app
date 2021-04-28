@@ -14,8 +14,8 @@ phases:
       #- pip uninstall awscli
       #- pip install --upgrade awscli
       - echo $(aws --version)
-      - pip3 install setuptools --upgrade
-      - pip3 install --upgrade PyYAML
+      - pip install setuptools --upgrade
+      - pip install --upgrade PyYAML
       - pip3 install --upgrade awscli
 
       - echo Logging in to Amazon ECR...
