@@ -10,6 +10,7 @@ phases:
       - apt-get update
       - pip uninstall awscli -y
       - apt-get -y install jq
+      - apt-get -y install python3
       - apt-get -y install python3-pip
       - apt-get -y install python3-dev
       #- pip install --upgrade awscli
