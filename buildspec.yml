@@ -8,8 +8,10 @@ phases:
       - chmod +x ./kubectl ./aws-iam-authenticator
       - export PATH=$PWD/:$PATH
       - apt-get remove python -y
-      - apt-get install python3 -y
+      - pip install --upgrade pip
+      - pip install python
       - apt-get update && apt-get -y install jq python3-pip python3-dev
+      - pip3 uninstall awscli
       - pip3 install --upgrade awscli
       - $(aws ecr get-login --no-include-email)
   pre_build:
