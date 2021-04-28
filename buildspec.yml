@@ -13,6 +13,7 @@ phases:
       - apt-get update && apt-get -y install jq python3-pip python3-dev
       - pip uninstall awscli -y
       - pip3 install --upgrade awscli
+      - pip3 install typing -y
       - $(aws ecr get-login --no-include-email)
   pre_build:
       commands:
