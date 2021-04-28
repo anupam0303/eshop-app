@@ -22,7 +22,7 @@ phases:
       - apt update
       - apt-cache search docker-ce
       - apt install docker-ce -y
-      #- service docker start
+      - service docker start
   pre_build:
       commands:
         - TAG="$REPOSITORY_NAME.$REPOSITORY_BRANCH.$ENVIRONMENT_NAME.$(date +%Y-%m-%d.%H.%M.%S).$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
