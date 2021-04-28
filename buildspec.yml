@@ -8,13 +8,13 @@ phases:
       #- chmod +x ./kubectl ./aws-iam-authenticator
       #- export PATH=$PWD/:$PATH
       - apt-get update
-      #- apt-get -y install jq
+      - pip uninstall awscli -y
+      - apt-get -y install jq
       - apt-get -y install python3-pip
       #- apt-get -y install python3-dev
-      - pip uninstall awscli -y
       #- pip install --upgrade awscli
-      - echo $(aws --version)
-      - pip install --upgrade pip
+      #- echo $(aws --version)
+      #- pip install --upgrade pip
       #- pip3 install setuptools --upgrade
       #- pip3 install --upgrade PyYAML
       - pip3 install --upgrade awscli
