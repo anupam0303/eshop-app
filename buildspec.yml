@@ -21,7 +21,7 @@ phases:
       #- apt-get install docker-ce docker-ce-cli containerd.io
       - apt update
       - apt-cache search docker-ce
-      - apt install docker-ce
+      - apt install docker-ce -y
       #- service docker start
   pre_build:
       commands:
